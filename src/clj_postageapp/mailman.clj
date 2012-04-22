@@ -1,6 +1,7 @@
 (ns clj-postageapp.mailman
   (:require
-   [clj-http.client :as client])
+    [clj-http.client :as client]
+    [clj-postageapp.request :as req])
   (:use [clojure.tools.logging]))
 
 (def ^{:doc "PostageApp API endpoint"} endpoint "https://api.postageapp.com/v.1.0")
@@ -20,8 +21,8 @@
   []
   (init-check!)
   (let [url (str endpoint "/get_account_info.json")
-        request-body (str "\"api_key\":\"" api-key "\"")]
-    (println "BODY: " request-body)
+        request-body (req/build-get-account-info-body api-key)]
+    (trace (str "Sending this get account info request: " request-body))
     (client/post url
                  {:body request-body
                   :content-type :json
@@ -31,7 +32,12 @@
 
 (defn ^{:doc "Send an email message"} send-message
   []
-  )
+  (init-check!)
+  (let [url (str endpoint "/send_message.json")
+        request-body (req/build-send-message-body api-key)]
+    ))
+
+
 (comment
   (-> (init! "kDdAPmGZzW4XvhapRkk2PjfjEg2uxKy7"))
   (-> (get-account-info))
