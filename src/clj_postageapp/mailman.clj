@@ -28,6 +28,10 @@
                   :socket-timeout 1000
                   :connection-timeout 1000
                   :accept :json})))
+
+(defn ^{:doc "Send an email message"} send-message
+  []
+  )
 (comment
   (-> (init! "kDdAPmGZzW4XvhapRkk2PjfjEg2uxKy7"))
   (-> (get-account-info))
