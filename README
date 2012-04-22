@@ -3,7 +3,7 @@
 A Clojure Wrapper for the postageapp API
 
 ## CI Status
-"!https://secure.travis-ci.org/smnirven/clj-postageapp.png!":http://travis-ci.org/smnirven/clj-postageapp
+[![Build Status](https://secure.travis-ci.org/smnirven/clj-postageapp.png)](http://travis-ci.org/smnirven/clj-postageapp)
 
 ## Usage
 
