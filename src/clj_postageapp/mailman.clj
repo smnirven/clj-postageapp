@@ -21,21 +21,18 @@
   []
   (init-check!)
   (let [url (str endpoint "/get_account_info.json")
-        request-body (req/build-get-account-info-body api-key)]
-    (trace (str "Sending this get account info request: " request-body))
-    (client/post url
-                 {:body request-body
-                  :content-type :json
-                  :socket-timeout 1000
-                  :connection-timeout 1000
-                  :accept :json})))
+        request (req/build-get-account-info-request api-key)]
+    (trace (str "Sending this get account info request: " (:body request)))
+    (client/post url request)))
 
 (defn ^{:doc "Send an email message"} send-message
-  []
+  [params]
   (init-check!)
   (let [url (str endpoint "/send_message.json")
-        request-body (req/build-send-message-body api-key)]
-    ))
+        request (req/build-send-message-request api-key params)]
+    (trace (str "Sending this send message request: " (:body request)))
+    (client/post url request)))
+
 
 
 (comment
