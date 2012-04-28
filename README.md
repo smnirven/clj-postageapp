@@ -9,7 +9,28 @@ A Clojure Wrapper for the postageapp API
 
 With leiningen, include it by adding this to your project.clj file:
 ```clojure
-  :dependencies [[clj-postageapp "0.0.1"]]
+  :dependencies [[clj-postageapp "0.0.1-SNAPSHOT"]]
+```
+
+The main functionality is available through the ```clojure clj-postageapp.mailman ``` namespace
+
+```clojure
+  (require '[clj-postageapp.mailman :as mail]
+```
+
+Before using the library, be sure to init it with your postageapp API
+key
+
+```clojure
+  (mail/init! "YOUR API KEY")
+```
+
+Currently the library supports two postageapp API requests,
+get-account-info, and send-message
+
+```clojure
+  (mail/send-message {:recipients ["test@test.com"] :subject
+  "Whazzzup" :from "no-reply@test.com" :template "the_postageapp_template_to_use"})
 ```
 
 
