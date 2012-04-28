@@ -7,7 +7,11 @@ A Clojure Wrapper for the postageapp API
 
 ## Usage
 
-FIXME: write
+With leiningen, include it by adding this to your project.clj file:
+```clojure
+  :dependencies [[clj-postageapp "0.0.1"]]
+```
+
 
 ## License
 
