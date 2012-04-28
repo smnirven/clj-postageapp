@@ -5,7 +5,7 @@
 (def conn-timeout 1000)
 
 ;; How many milliseconds to wait for a response once a request has been sent
-(def socket-timeout 1000)
+(def socket-timeout 5000)
 
 ;; These request params generally stay the same for all requests
 (def default-request-params {:content-type :json
@@ -18,26 +18,42 @@
   [api-key]
     {"api_key" api-key})
 
-(defn ^{:doc "Build json request body for get account info API request"}
-  build-get-account-info-body
+(defn ^{:doc "Build request body map for get account info API request"}
+  build-get-account-info-body-map
   [api-key]
-  (generate-string (build-base-request-map api-key)))
+  (build-base-request-map api-key))
 
-(defn ^{:doc "Build json request body for send message API request"}
-  build-send-message-body
-  [api-key, params]
-  )
+(defn ^{:doc "Build request body map for send message API request"}
+  build-send-message-body-map
+  [api-key params]
+  (let [uid (str (java.util.UUID/randomUUID))
+        args {"arguments"
+               {"recipients" (:recipients params)
+                "headers"
+                 {"subject" (:subject params)
+                  "from" (:from params)}
+                 "template" (:template params)}
+               "uid" uid}]
+    (merge (build-base-request-map api-key) args)))
+        
+  
+
 
 (defn ^{:doc "Build full request map for get account info API request"}
   build-get-account-info-request
   [api-key]
-  (merge {:body (build-get-account-info-body api-key)}
+  (merge {:body (generate-string (build-get-account-info-body-map api-key))}
          default-request-params))
 
 (defn ^{:doc "Build full request map for send message API request"}
   build-send-message-request
   [api-key params]
-  (merge {:body (build-send-message-body api-key params)}
+  {:pre [(contains? params :recipients)
+         (contains? params :subject)
+         (contains? params :from)
+         (contains? params :template)]}
+  (merge {:body (generate-string
+                 (build-send-message-body-map api-key params))}
          default-request-params))
 
 (comment

@@ -36,7 +36,12 @@
 
 
 (comment
-  (-> (init! "kDdAPmGZzW4XvhapRkk2PjfjEg2uxKy7"))
+  (-> (init! "API KEY GOES HERE"))
   (-> (get-account-info))
+  (-> (send-message
+       {:recipients ["test@test.com"]
+        :subject "Whazzup"
+        :from "no-reply@test.com"
+        :template "postageapp_email_template"}))
   (-> api-key)
 )
