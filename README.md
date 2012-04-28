@@ -9,7 +9,7 @@ A Clojure Wrapper for the [postageapp](http://postageapp.com) API
 
 With leiningen, include it by adding this to your project.clj file:
 ```clojure
-  :dependencies [[clj-postageapp "0.0.1-SNAPSHOT"]]
+  :dependencies [[clj-postageapp "0.1.0-alpha"]]
 ```
 
 The main functionality is available through the ```clojure clj-postageapp.mailman ``` namespace

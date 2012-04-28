@@ -11,7 +11,8 @@
 (def default-request-params {:content-type :json
                              :socket-timeout socket-timeout
                              :connection-timeout conn-timeout
-                             :accept :json})
+                             :accept :json
+                             :headers {"User-Agent" "CLJ-POSTAGEAPP 0.1.0-alpha"}})
 
 (defn ^{:doc "Build base request map"}
   build-base-request-map

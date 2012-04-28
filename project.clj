@@ -1,4 +1,4 @@
-(defproject clj-postageapp "0.0.1-SNAPSHOT"
+(defproject clj-postageapp "0.1.0-alpha"
   :description "Clojure Wrapper for PostageApp"
   :dependencies [[org.clojure/clojure "1.3.0"]
                  [clj-http "0.3.6"]
