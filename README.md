@@ -1,6 +1,6 @@
 # clj-postageapp
 
-A Clojure Wrapper for the postageapp API
+A Clojure Wrapper for the [postageapp](http://postageapp.com) API
 
 ## CI Status
 [![Build Status](https://secure.travis-ci.org/smnirven/clj-postageapp.png)](http://travis-ci.org/smnirven/clj-postageapp)
