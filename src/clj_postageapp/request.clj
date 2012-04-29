@@ -12,7 +12,7 @@
                              :socket-timeout socket-timeout
                              :connection-timeout conn-timeout
                              :accept :json
-                             :headers {"User-Agent" "CLJ-POSTAGEAPP 0.1.0-alpha"}})
+                             :headers {"User-Agent" "CLJ-POSTAGEAPP 0.2.0-alpha"}})
 
 (defn ^{:doc "Build base request map"}
   build-base-request-map

@@ -34,7 +34,7 @@
   (build-send-message-request
    data/test-api-key-one
    data/test-send-message-params) =>
-   (contains {:headers (just {"User-Agent" "CLJ-POSTAGEAPP 0.1.0-alpha"})
+   (contains {:headers (just {"User-Agent" "CLJ-POSTAGEAPP 0.2.0-alpha"})
               :accept :json
               :content-type :json
               :socket-timeout anything
