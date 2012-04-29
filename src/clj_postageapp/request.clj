@@ -33,8 +33,9 @@
                 "headers"
                  {"subject" (:subject params)
                   "from" (:from params)}
-                 "template" (:template params)}
-               "uid" uid}]
+                "template" (:template params)
+                "variables" (:variables params)}
+              "uid" uid}]
     (merge (build-base-request-map api-key) args)))
         
   

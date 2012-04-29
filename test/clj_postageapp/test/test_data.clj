@@ -9,6 +9,14 @@
    :from "no-reply@test.com"
    :template "test-template"})
 
+(def send-message-custom-vars-params
+  {:recipients ["jimbo@test.com"]
+   :subject "This is an email with custom variables"
+   :from "no-reply@test.com"
+   :template "template-with-vars"
+   :variables {"first_name" "Jimbo" "last_name" "Baggins"}})
+
+
 (defn test-send-message-result
   [api-key]
   {:content-type :json

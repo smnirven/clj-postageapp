@@ -21,6 +21,24 @@
                                      "template" "test-template"})
               "uid" anything}))
 
+(facts "check send message request body builder with custom variables"
+  (build-send-message-body-map
+   data/test-api-key-two
+   data/send-message-custom-vars-params) =>
+   (contains {"arguments"
+              (contains {"variables"
+                         (just {"first_name" "Jimbo"
+                                "last_name" "Baggins"})})}))
+
+(facts "check send message full request builder"
+  (build-send-message-request
+   data/test-api-key-one
+   data/test-send-message-params) =>
+   (contains {:headers (just {"User-Agent" "CLJ-POSTAGEAPP 0.1.0-alpha"})
+              :accept :json
+              :content-type :json
+              :socket-timeout anything
+              :connection-timeout anything}))
 (comment
   (-> data/test-api-key-two)
 )
